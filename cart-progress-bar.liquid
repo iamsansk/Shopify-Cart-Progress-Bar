@@ -1,0 +1,101 @@
+{% assign tier_count = 0 %}
+{% if settings.tier_1_amount > 0 %}
+  {% assign tier_count = tier_count | plus: 1 %}
+{% endif %}
+{% if settings.tier_2_amount > 0 %}
+  {% assign tier_count = tier_count | plus: 1 %}
+{% endif %}
+{% if settings.tier_3_amount > 0 %}
+  {% assign tier_count = tier_count | plus: 1 %}
+{% endif %}
+
+<div id="cart-progress-container">
+  <div id="cart-progress-bar">
+    <div class="progress-fill" style="display: block"></div>
+
+    <div class="tier-icons tier-count-{{ tier_count }}">
+      {% if settings.tier_1_amount > 0 %}
+        <img
+          src="{{ settings.tier_1_image | image_url  }}"
+          class="tier-icon"
+          data-threshold="{{ settings.tier_1_amount }}"
+          alt="Tier 1"
+          height="80"
+          width="80"
+        >
+      {% endif %}
+      {% if settings.tier_2_amount > 0 %}
+        <img
+          src="{{ settings.tier_2_image | image_url }}"
+          class="tier-icon"
+          data-threshold="{{ settings.tier_2_amount }}"
+          alt="Tier 2"
+          height="80"
+          width="80"
+        >
+      {% endif %}
+      {% if settings.tier_3_amount > 0 %}
+        <img
+          src="{{ settings.tier_3_image | image_url }}"
+          class="tier-icon"
+          data-threshold="{{ settings.tier_3_amount }}"
+          alt="Tier 3"
+          height="80"
+          width="80"
+        >
+      {% endif %}
+    </div>
+  </div>
+  <div id="tier-message" class="tier-message">Loading...</div>
+</div>
+
+<style>
+    #cart-progress-container {
+    margin: 0px 20px;
+  }
+
+  #cart-progress-bar {
+    position: relative;
+    height: 10px;
+    background: #f2f2f2;
+    border-radius: 8px;
+    overflow: visible; /* fix: allow icon overflow */
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: {{ settings.progressbar_color }};
+    border-radius: 8px;
+    transition: width 0.3s ease-in-out;
+    width: 0%;
+  }
+
+  .tier-icons {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .tier-icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s;
+    z-index: 10;
+  }
+
+  .tier-message {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #333;
+  }
+</style>

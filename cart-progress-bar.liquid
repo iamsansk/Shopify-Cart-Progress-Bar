@@ -9,8 +9,8 @@
   {% assign tier_count = tier_count | plus: 1 %}
 {% endif %}
 
-<div id="cart-progress-container">
-  <div id="cart-progress-bar">
+<div class="cart-progress-container">
+  <div class="cart-progress-bar">
     <div class="progress-fill" style="display: block"></div>
 
     <div class="tier-icons tier-count-{{ tier_count }}">
@@ -46,15 +46,15 @@
       {% endif %}
     </div>
   </div>
-  <div id="tier-message" class="tier-message">Loading...</div>
+  <div class="tier-message">Loading...</div>
 </div>
 
 <style>
-    #cart-progress-container {
+  .cart-progress-container {
     margin: 0px 20px;
   }
 
-  #cart-progress-bar {
+  .cart-progress-bar {
     position: relative;
     height: 10px;
     background: #f2f2f2;

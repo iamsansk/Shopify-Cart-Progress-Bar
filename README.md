@@ -1,6 +1,6 @@
 ﻿# 🛒 Shopify Cart Progress Bar
 
-> 🎨 **IMPORTANT**: This cart progress bar is built and tested using the **Dawn theme**. The code is tailored to my brand's needs — **feel free to extend or customize** based on your own requirements.
+> 🎨 **IMPORTANT**: This cart progress bar is built and tested using the **Dawn theme**. The code is tailored to my requirements — **feel free to extend or customize** based on your own requirements.
 
 ---
 
@@ -166,3 +166,4 @@ If you found any bugs in the code, feel free to:
 Your feedback is always appreciated!
 
 ---
+
